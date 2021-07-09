@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<h1><%= post.title %></h1>
+<h3>Author: <%= post.author %></h3>
+
+<p><%- post.content %></p>
+<p>Created at <%= post.created_at %></p>
+<%if(user) if(post.author == user.username) { %>
+<a class="btn btn-danger" href="/blog/delete/<%=post._id%>">Delete</a> <a class="btn btn-warning" href="/blog/update/<%=post._id%>">Edit</a>
+<% } %>
+<hr>
+<div class="col col-md-6">
+    <p>Comments(<%= post.comments.length %>):</p>
+    <% for(var i = 0; i < post.comments.length; i++) { %>
+    <p>
+        <%= post.comments[i].author %>: 
+        <%= post.comments[i].text %> 
+    </p>
+    <% } %>
+
+    <p>Write comment</p>
+    <form action="/blog/comment/<%= post._id %>" method="post">
+        <input type="text" name="author" class="form-control" placeholder="Your name" />
+        <br />
+        
+        <p>Comment:</p>
+        <textarea name="text" cols="30" rows="5" class="form-control"></textarea>
+        <br />
+        <button class="btn btn-success">Send comment</button>
+    </form>
+</div>
+<br />
+
+<br />
+<br />
+<% include ../partials/footer %>

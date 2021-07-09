@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<h1>Edit blog post</h1>
+
+<form action="/blog/update/<%= post._id %>" method="post">
+    <input class="form-control" type="text" value="<%= post.title %>" name="title" />
+    <br />
+    <textarea class="form-control" name="content" rows="10" cols="50"><%= post.content %></textarea>
+    <br />
+    <button class="btn btn-success">Save!</button>
+</form>
+
+<script src="https://cdn.ckeditor.com/4.7.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content' );
+</script>
+<% include ../partials/footer %>

@@ -1,0 +1,29 @@
+==================
+APP Structure
+===================
+Models:
+    User
+    Post
+    Comment
+Controllers:
+    AuthController
+    PostController
+    CommentController
+Routes:
+    auth 
+    blog
+Middleware:
+    isLoggedIn
+    isAuthor
+Views:
+    auth:
+        register.ejs
+        login.ejs
+    blog:
+        index.ejs
+        create_post.ejs
+        read_post.ejs
+        update_post.ejs
+        create_comment.ejs
+    
+

@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<h1> Welcome <%= user? user.username : "Guest" %>  </h1>
+
+<a href="/blog/new">Write new blog post</a>
+
+<% for(var i = 0; i < posts.length; i++) { %>
+<hr>
+<h2><a href="/blog/read/<%= posts[i]._id %>"><%= posts[i].title %> </a></h2>
+<h3>Author: <%= posts[i].author %> </h3>
+<br />
+<% } %>
+<% include ../partials/footer %>
